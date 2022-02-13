@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+set -e
+
+echo 'Creating folders'
+mkdir -p /www/media
+
+echo ''
+echo 'Inject into HTML page'
+sed -i "s|###VNC_HOST###|${VNC_HOST}|" www/index.html
+sed -i "s|###PLAYER_ROOT###|${PLAYER_ROOT}|" www/index.html
+
+echo ''
+echo 'Starting gstreamer'
+gst-launch-1.0 \
+rfbsrc host=${VNC_HOST} port=${VNC_PORT} password=${VNC_PASSWORD} shared=false view-only=true ! \
+videoconvert ! x264enc tune=zerolatency ! \
+hlssink2 playlist-root=${PLAYER_ROOT}/media playlist-location=/www/media/playlist.m3u8 location=/www/media/segment_%05d.ts target-duration=5 max-files=10 &
+
+sleep 3
+echo ''
+echo 'Starting web server'
+python3 -m http.server 8080 --directory /www
