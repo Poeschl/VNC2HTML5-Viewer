@@ -15,6 +15,6 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     && rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGKILL
-ENTRYPOINT [ "/run" ]
+ENTRYPOINT [ "/run-viewer" ]
 CMD []
 COPY root /
