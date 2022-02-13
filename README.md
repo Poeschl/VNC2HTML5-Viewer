@@ -1,7 +1,8 @@
 # VNC2HTML5-Viewer
 
 This project connects itself to a VNC server and transferes the remote display to an web page with an video player.
-Its intended to run as docker container.
+
+![Default page when running on localhost](docs/display.png)
 
 ## Usage
 
