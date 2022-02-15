@@ -1,0 +1,11 @@
+#!/command/with-contenv sh
+set -e
+
+echo 'Creating media folders'
+mkdir -p /www/media
+
+echo 'Starting gstreamer'
+gst-launch-1.0 \
+rfbsrc host=${VNC_HOST} port=${VNC_PORT} password=${VNC_PASSWORD} shared=false view-only=true ! \
+videoconvert ! x264enc tune=zerolatency ! \
+hlssink2 playlist-root=${PLAYER_ROOT}/media playlist-location=/www/media/playlist.m3u8 location=/www/media/segment_%05d.ts target-duration=5 max-files=10

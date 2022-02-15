@@ -1,0 +1,9 @@
+#!/command/with-contenv sh
+set -e
+
+echo 'Inject into HTML page'
+sed -i "s|###VNC_HOST###|${VNC_HOST}|" /www/index.html
+sed -i "s|###PLAYER_ROOT###|${PLAYER_ROOT}|" /www/index.html
+
+echo 'Starting web server'
+python3 -m http.server 8080 --directory /www
