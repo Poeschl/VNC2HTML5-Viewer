@@ -9,15 +9,17 @@
   <script type="application/javascript" src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
 </head>
 <body>
-  <h1>VNC Display of ###VNC_HOST###</h1>
+  <div class="container">
+    <h1>VNC Display of ###VNC_HOST###</h1>
 
-  <video class="video-js" data-setup='{}' controls preload="auto" autoplay="true" width="1280" height="720">
-    <source src="###PLAYER_ROOT###/media/playlist.m3u8" type="application/x-mpegURL">
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
+    <video class="video-js vjs-big-play-centered" data-setup='{}' controls preload="auto" autoplay="true">
+      <source src="###PLAYER_ROOT###/media/playlist.m3u8" type="application/x-mpegURL">
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
 
 </body>
 </html>
