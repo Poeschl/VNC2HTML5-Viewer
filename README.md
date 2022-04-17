@@ -8,6 +8,7 @@ This project connects itself to a VNC server and transferes the remote display t
 
 The docker image will connect to the given VNC server with the `VNC_HOST`, `VNC_PORT` and `VNC_PASSWORD` environment variables.
 For getting all the paths right the `PLAYER_ROOT` variable must be set to the domain where the page will be available afterwards.
+To customize the webpage title the `TITLE` environment variable can be set.
 
 The image is available only with the `latest` tag under `ghcr.io/poeschl/vnc2html`. 
 

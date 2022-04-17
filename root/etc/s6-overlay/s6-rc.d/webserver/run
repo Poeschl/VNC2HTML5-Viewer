@@ -3,7 +3,7 @@ set -e
 
 echo 'Inject into HTML page'
 HTML_PAGES=$(find /www -name "*.html")
-sed -i "s|###VNC_HOST###|${VNC_HOST}|" $HTML_PAGES
+sed -i "s|###TITLE###|${TITLE}|" $HTML_PAGES
 sed -i "s|###PLAYER_ROOT###|${PLAYER_ROOT}|" $HTML_PAGES
 
 echo 'Starting web server'

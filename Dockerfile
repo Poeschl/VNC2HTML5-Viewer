@@ -29,6 +29,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
 ENV VNC_HOST localhost
 ENV VNC_PORT 5900
 ENV PLAYER_ROOT http://localhost:8080
+ENV TITLE "VNC Display of $VNC_HOST"
 
 ENTRYPOINT [ "/init" ]
 CMD []
