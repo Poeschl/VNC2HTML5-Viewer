@@ -2,8 +2,9 @@
 set -e
 
 echo 'Inject into HTML page'
-sed -i "s|###VNC_HOST###|${VNC_HOST}|" /www/index.html
-sed -i "s|###PLAYER_ROOT###|${PLAYER_ROOT}|" /www/index.html
+HTML_PAGES=$(find /www -name "*.html")
+sed -i "s|###VNC_HOST###|${VNC_HOST}|" $HTML_PAGES
+sed -i "s|###PLAYER_ROOT###|${PLAYER_ROOT}|" $HTML_PAGES
 
 echo 'Starting web server'
 python3 -m http.server 8080 --directory /www
